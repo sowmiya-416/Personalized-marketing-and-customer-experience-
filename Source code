@@ -1,0 +1,57 @@
+Source Code
+import hashlib
+import random
+customers = [
+{"name": "Alice", "age": 28, "location": "New York", "browsing":
+["smartphone", "fitness", "shoes"]},
+{"name": "Raj", "age": 35, "location": "Delhi", "browsing":
+["laptop", "headphones", "AI courses"]},
+{"name": "Fatima", "age": 24, "location": "Dubai", "browsing":
+["makeup", "skincare", "jewelry"]},
+]
+product_map = {
+"smartphone": "Latest iPhone 15 Pro",
+"fitness": "Fitbit Charge 6",
+"shoes": "Nike Air Max 270",
+"laptop": "Dell XPS 13",
+"headphones": "Sony WH-1000XM5",
+"AI courses": "AI for Beginners - Coursera",
+"makeup": "MAC Lipstick Set",
+"skincare": "Neutrogena Hydro Boost",
+"jewelry": "Swarovski Pendant"
+}
+def recommend_products(customer):
+print(f"\n[Personalized Recommendations for {customer['name']}]")
+interests = customer["browsing"]
+for item in interests:
+recommendation = product_map.get(item, "No match found")
+print(f" - Based on your interest in {item}, we recommend:
+{recommendation}")
+def chatbot_interface():
+print("\n[Multilingual Chatbot]")
+lang = input("Choose your language (English/Hindi/Tamil):
+").lower()
+greeting = {
+"english": "Hi! Tell me what products you're interested in:",
+"hindi": "नमdef simulate_behavior(customer):
+print(f"\n[Simulated Behavior Data for {customer['name']}]")
+time_spent = random.randint(5, 120)
+print(f" - Browsing time today: {time_spent} minutes")
+if time_spent > 60:
+print(" - You seem highly engaged! Check out this limited-time
+offer!")
+else:
+print(" - Here's something new to grab your attention!")
+def encrypt_user_data(name, interests):
+raw = f"{name}{''.join(interests)}"
+return hashlib.sha256(raw.encode()).hexdigest()
+if __name__ == "__main__":
+print("=== Personalized Marketing & Customer Experience System
+===")
+for customer in customers:
+recommend_products(customer)
+simulate_behavior(customer)
+encrypted_id = encrypt_user_data(customer["name"],
+customer["browsing"])
+print(f" - Encrypted Customer ID: {encrypted_id}\n")
+chatbot_interface()
